@@ -6,9 +6,9 @@
   *@a: int param
   *@b: int param
   *
-  * Description - add 2 nums 
+  * Description - add 2 nums
   *
-  * Return - the result 
+  * Return - the result
  */
 
 int add(int a, int b)
