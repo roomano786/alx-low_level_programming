@@ -36,7 +36,7 @@ void times_table(void)
 				if (col < 9)
 				{
 					_putchar(',');
-					_puthcar(' ');
+					_putchar(' ');
 				}
 				if (col == 9)
 					_putchar('$');
