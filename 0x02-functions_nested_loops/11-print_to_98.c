@@ -6,7 +6,7 @@
  *
  * Description - prints all natural numbers form n to 98
  *
- * @n - int param
+ * @n - int param for the func print_to_98
  *
  * Return - void
  */
@@ -17,6 +17,9 @@ void print_to_98(int n)
 
 	if (n < 98)
 		for (count = n; count < 98; count++)
+			printf("%d, ", count);
+	else
+		for (count = n; count > 98; count--)
 			printf("%d, ", count);
 	printf("98\n");
 }
