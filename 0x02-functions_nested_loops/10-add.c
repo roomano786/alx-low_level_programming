@@ -8,7 +8,7 @@
   *
   * Description - add 2 nums
   *
-  * Return - the result
+  * Return - a +b
  */
 
 int add(int a, int b)
