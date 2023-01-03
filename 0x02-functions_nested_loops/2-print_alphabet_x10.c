@@ -1,6 +1,7 @@
 #include "main.h"
 
 /**
+  * print_alphabet: function
   * Description: func that prints the alphabet in 10 times
   * Return
  */
