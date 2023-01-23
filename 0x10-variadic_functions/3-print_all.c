@@ -1,36 +1,51 @@
 #include <stdio.h>
-#include <stdarg.h>
 #include <stdlib.h>
+#include <stdarg.h>
+
 /**
-  *print_strings - prints strings followed by a new line.
-  *@separator: string to be printed between strings.
-  *@n: number of strings.
+  *print_all - prints anything.
+  *@format: list of all arguments passed to the function.
   *
   *Return: void.
   */
-void print_strings(const char *separator, const unsigned int n, ...)
+void print_all(const char * const format, ...)
 {
 	unsigned int i;
-	char *s;
-	va_list strings;
+	va_list args;
+	char *s, *separator;
 
-	if (separator == NULL)
-		separator = "";
+	va_start(args, format);
 
-	va_start(strings, n);
+	separator = "";
 
-	for (i = 0; i < n; i++)
+	i = 0;
+	while (format && format[i])
 	{
-		s = va_arg(strings, char *);
-
-		if (s == NULL)
-			s = "(nil)";
-		printf("%s", s);
-		if (i < n - 1)
+		switch (format[i])
 		{
-			printf("%s", separator);
+			case 'c':
+				printf("%s%c", separator,  va_arg(args, int));
+				break;
+			case 'i':
+				printf("%s%d", separator, va_arg(args, int));
+				break;
+			case 'f':
+				printf("%s%f", separator, va_arg(args, double));
+				break;
+			case 's':
+				s = va_arg(args, char *);
+				if (s == NULL)
+					s = "(nil)";
+				printf("%s%s", separator, s);
+				break;
+			default:
+				i++;
+				continue;
 		}
+		separator = ", ";
+		i++;
 	}
+
 	printf("\n");
-	va_end(strings);
+	va_end(args);
 }
